@@ -33,3 +33,15 @@ class Channel:
     def to_json(self, filename):
         with open(filename, 'w') as file:
             json.dump(self.__dict__, file, indent=2)
+
+    def __str__(self):
+        return f'{self.title} ({self.url})'
+
+    def __add__(self, other) -> int:
+        return int(self.quantity_subscribers) + int(other.quantity_subscribers)
+
+    def __sub__(self, other) -> int:
+        return int(self.quantity_subscribers) - int(other.quantity_subscribers)
+
+    def __ge__(self, other) -> bool:
+        return int(self.quantity_subscribers) >= int(other.quantity_subscribers)
