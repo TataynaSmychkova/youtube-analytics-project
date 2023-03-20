@@ -45,3 +45,18 @@ class Channel:
 
     def __ge__(self, other) -> bool:
         return int(self.quantity_subscribers) >= int(other.quantity_subscribers)
+
+    def __gt__(self, other) -> bool:
+        return int(self.quantity_subscribers) > int(other.quantity_subscribers)
+
+    def __le__(self, other) -> bool:
+        return int(self.quantity_subscribers) <= int(other.quantity_subscribers)
+
+    def __lt__(self, other) -> bool:
+        return int(self.quantity_subscribers) < int(other.quantity_subscribers)
+
+    def __eq__(self, other) -> bool:
+        return int(self.quantity_subscribers) == int(other.quantity_subscribers)
+
+    def __ne__(self, other) -> bool:
+        return int(self.quantity_subscribers) != int(other.quantity_subscribers)
