@@ -23,14 +23,18 @@ class Channel:
         print(json.dumps(self.__youtube, indent=2, ensure_ascii=False))
 
     @classmethod
-    def get_service(cls):
+    def get_service(cls) -> str:
         return build('youtube', 'v3', developerKey=cls.api_key)
 
+    @classmethod
+    def get_video_info(cls, id_video) -> dict:
+        return cls.get_service().videos().list(id=id_video, part='snippet,statistics').execute()
+
     @property
-    def channel_id(self):
+    def channel_id(self) -> str:
         return self.__channel_id
 
-    def to_json(self, filename):
+    def to_json(self, filename) -> None:
         with open(filename, 'w') as file:
             json.dump(self.__dict__, file, indent=2)
 
